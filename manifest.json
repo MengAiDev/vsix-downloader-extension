@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "VS Code 市场 VSIX 下载器",
+  "version": "1.0",
+  "description": "在VS Code插件市场添加下载VSIX按钮",
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": [
+    "downloads",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://marketplace.visualstudio.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://marketplace.visualstudio.com/items?*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
